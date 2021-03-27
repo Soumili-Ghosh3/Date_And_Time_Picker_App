@@ -11,7 +11,7 @@ import android.widget.TimePicker
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
-class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener{
     var day = 0
     var month = 0
     var year = 0
@@ -24,12 +24,13 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Ti
     var savedhour = 0
     var savedminute = 0
 
-    private var btntimePicker: Button = findViewById(R.id.btn_timePicker)
-    var tvtextTime: TextView = findViewById(R.id.tv_textTime)
+    lateinit var btntimePicker: Button
+    lateinit var tvtextTime: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        btntimePicker = findViewById(R.id.btn_timePicker)
+        tvtextTime = findViewById(R.id.tv_textTime)
         pickDate()
     }
 
