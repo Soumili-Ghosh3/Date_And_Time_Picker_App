@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Ti
 
     override fun onDateSet(p0: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         savedday = dayOfMonth
-        savedmonth = month
+        savedmonth = month + 1
         savedyear = year
 
         getDateTimeCalendar()
@@ -66,6 +66,9 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Ti
         savedhour = hourOfDay
         savedminute = minute
 
-        tvtextTime.text = "$savedday-$savedmonth-$savedyear\n Hour:$savedhour Minute:$savedminute"
+        if(savedhour < 12)
+            tvtextTime.text = "$savedday-$savedmonth-$savedyear\n $savedhour : $savedminute AM"
+        else
+            tvtextTime.text = "$savedday-$savedmonth-$savedyear\n $savedhour : $savedminute PM"
     }
 }
